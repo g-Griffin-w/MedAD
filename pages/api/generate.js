@@ -47,8 +47,7 @@ Write ONLY the ad content. No intro, no explanation. Start directly with the ad.
 
   try {
     const message = await client.messages.create({
-      model: 'claude-opus-4-5',
-      max_tokens: 2000,
+      model: 'claude-sonnet-4-6',      max_tokens: 2000,
       messages: [{ role: 'user', content: prompt }]
     })
 
