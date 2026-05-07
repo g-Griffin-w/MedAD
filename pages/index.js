@@ -1,5 +1,3 @@
-import { getServerSession } from "next-auth/next"
-import { authOptions } from "./api/auth/[...nextauth]"
 import { useState } from 'react'
 import { useSession, signOut } from 'next-auth/react'
 import { useRouter } from 'next/router'
@@ -35,7 +33,9 @@ const S = {
 }
 
 export default function Home() {
-  const { data: session, status } = useSession()
+  const sessionHook = useSession()
+  const session = sessionHook?.data
+  const status = sessionHook?.status  
   const router = useRouter()
   const [spaName, setSpaName] = useState('')
   const [treatment, setTreatment] = useState(TREATMENTS[0])
@@ -212,11 +212,6 @@ export default function Home() {
     </>
   )
 }
-export async function getServerSideProps(context) {
-  const session = await getServerSession(context.req, context.res, authOptions)
-  return {
-    props: {
-      session: session || null,
-    }
-  }
-}}
+export async function getServerSideProps() {
+  return { props: {} }
+}
