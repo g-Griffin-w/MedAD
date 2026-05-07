@@ -1,9 +1,9 @@
 import { getServerSession } from "next-auth/next"
-import { authOptions } from "./api/auth/[...nextauth]" { useState } from 'react'
+import { authOptions } from "./api/auth/[...nextauth]"
+import { useState } from 'react'
 import { useSession, signOut } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-
 const gold = '#b8860b'
 const FREE_LIMIT = 3
 
