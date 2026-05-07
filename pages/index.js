@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useSession, signOut } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
+
 const gold = '#b8860b'
 const FREE_LIMIT = 3
 
@@ -35,7 +36,7 @@ const S = {
 export default function Home() {
   const sessionHook = useSession()
   const session = sessionHook?.data
-  const status = sessionHook?.status  
+  const status = sessionHook?.status
   const router = useRouter()
   const [spaName, setSpaName] = useState('')
   const [treatment, setTreatment] = useState(TREATMENTS[0])
@@ -112,7 +113,6 @@ export default function Home() {
             </div>
           )}
 
-          {/* Spa Info */}
           <div style={{ marginBottom: 20 }}>
             <span style={S.secTag}>Your med spa</span>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
@@ -153,7 +153,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Ad Type */}
           <div style={{ marginBottom: 16 }}>
             <span style={S.secTag}>Ad type</span>
             <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
@@ -161,7 +160,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Quantity */}
           <div style={{ marginBottom: 24 }}>
             <span style={S.secTag}>Quantity</span>
             <div style={{ display: 'flex', gap: 8 }}>
@@ -212,6 +210,7 @@ export default function Home() {
     </>
   )
 }
+
 export async function getServerSideProps() {
   return { props: {} }
 }
